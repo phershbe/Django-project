@@ -16,7 +16,8 @@ class Profile(models.Model):
 
 class Conversation(models.Model):
     participants = models.ManyToManyField(User)
-    
+    mostrecentmessage = models.ForeignKey('Message', default=None, on_delete=models.CASCADE, null=True, related_name='mostrecentmessage')
+
     def __str__(self):
         return str(self.participants.all()[0]) + ' and ' + str(self.participants.all()[1])
 
@@ -29,3 +30,4 @@ class Message(models.Model):
 
     def __str__(self):
         return self.sender.username + ' to ' + self.receiver.username
+

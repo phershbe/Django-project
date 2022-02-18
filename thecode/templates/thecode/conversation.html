@@ -8,7 +8,7 @@
     {% include 'thecode/header.html' %}
     <div class="m-2">
         <h3>Conversation with {{ exchangeperson }}</h3>
-        <a>Go back</a>
+        <a href="{% url 'messagespage' %}">Go back</a>
         <form action="{% url 'writemessage' idnumber %}" method="POST">
             {% csrf_token %}
             <textarea class="form-control" name="content"></textarea>

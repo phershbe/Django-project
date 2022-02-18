@@ -15,6 +15,11 @@
         <br/>
         <button>Send</button>
     </form>
+    {% for each in messages %}
+            <h5 class="text-primary">{{ each.sender }}</h5>
+            <h6>{{ each.timestamp }}</h6>
+            <h5>{{ each.content }}</h5>
+    {% endfor %}
     </div>
 </body>
 </html>

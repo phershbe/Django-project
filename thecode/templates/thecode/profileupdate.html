@@ -6,7 +6,7 @@
 </head>
 <body>
     {% include 'thecode/header.html' %}
-    <div class="m-2">
+    <div class="ms-3 me-4">
     <h1>Profile</h1>
     <form action="{% url 'profileupdate' %}" method="POST">
     {% csrf_token %}

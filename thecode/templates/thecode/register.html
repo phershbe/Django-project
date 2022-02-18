@@ -6,8 +6,11 @@
 </head>
 <body>
     {% include 'thecode/header.html' %}
-    <div class="m-2">
+    <div class="ms-3 me-4">
     <h1>Register</h1>
+    {% if problem != None %}
+        <h5 class="text-danger">{{ problem }}</h5>
+    {% endif %}
     <form action="{% url 'registerpage' %}" method="POST">
     {% csrf_token %}
     {{ form.as_p }}

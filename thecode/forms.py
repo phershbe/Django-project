@@ -4,7 +4,7 @@ from .models import Profile, Message
 class ProfileForm(ModelForm):
     class Meta:
         model = Profile
-        fields = '__all__'
+        exclude = ['user']
 
 class MessageForm(ModelForm):
     class Meta:

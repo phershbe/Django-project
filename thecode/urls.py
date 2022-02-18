@@ -12,4 +12,5 @@ urlpatterns = [
     path('messages/', views.messagespage, name='messagespage'),
     path('writemessage/<str:id>', views.writemessage, name='writemessage'),
     path('conversation/<str:id>', views.conversationpage, name='conversationpage'),
+    path('searchwritemessage/<str:id>', views.searchwritemessage, name='searchwritemessage'),
 ]

@@ -6,27 +6,11 @@
 </head>
 <body>
     {% include 'thecode/header.html' %}
-    <div class="m-2">
-    {% comment %}
-    <h1>Messages</h1>
-    {% for message in messages %}
-        <div>
-        {% if message.sender == request.user %}
-            <h3>Message from you to {{ message.receiver }}</h3>
-            <h6>{{ message.timestamp }}</h6>
-            <h5>{{ message.content }}</h5>
-        {% elif message.receiver == request.user %}
-            <h3>Message from {{ message.sender }} to you</h3>
-            <h6>{{ message.timestamp }}</h6>
-            <h5>{{ message.content }}</h5>  
-        {% endif %}
-        </div>
-    {% endfor %}
-    {% endcomment %}
+    <div class="ms-3 me-4">
     
     
     {% csrf_token %}
-    <h3>Conversations</h4>
+    <h1>Conversations</h1>
     {% for each in conversations %}
         <form action="{% url 'conversationpage' each.id %}" method="POST">
             {% csrf_token %}
@@ -35,6 +19,7 @@
             {% else %}
             <h5>{{ each.participants.all.1 }}</h5>
             {% endif %}
+            {{ each.mostrecentmessage.content }}
             <button>Go to</button>
         </form>
     {% endfor %}
